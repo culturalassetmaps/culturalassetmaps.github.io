@@ -1,0 +1,25 @@
+.button,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"]
+  background-color: $piction
+  border: none
+  color: $base-darker
+  cursor: pointer
+  display: inline-block
+  font-size: 1.4rem
+  font-weight: 700
+  height: 4rem
+  line-height: 4rem
+  letter-spacing: .1rem
+  padding: 0 2rem
+  text-align: center
+  text-decoration: none
+  transition: $transition
+  white-space: nowrap
+
+  &:hover,
+  &:active
+    background-color: lighten($piction, 15%)
+    outline: 0

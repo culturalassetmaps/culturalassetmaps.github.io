@@ -1,0 +1,66 @@
+nav
+  align-items: center
+  align-self: flex-end
+  display: flex
+  flex-direction: column
+  justify-content: flex-start
+  background-color: $base-darker
+  height: 100vh
+  padding-top: 2rem
+  position: fixed
+  right: 0
+  width: 25rem
+  text-align: center
+  transition: $transition-cubic
+  z-index: 1
+
+.logo-container, .logo-container:active, .logo-container:focus
+  color: $iron
+  text-decoration: none
+
+  &:hover
+    color: lighten($iron, 20%)
+
+    .logo-leftPanel
+      fill: lighten($iron, 10%)
+
+    .logo-rightPanel
+      fill: lighten(darken($iron, 15%), 10%)
+
+.title
+  @extend .big
+  margin-bottom: 0
+
+.nav-list
+  list-style: none
+  margin: 0
+  padding: 0
+
+.nav-item
+  margin-bottom: 2rem
+
+.nav-link
+  color: $iron
+  letter-spacing: .1rem
+  text-decoration: none
+
+.current
+  color: $piction
+
+  &::after
+    content: '\2022'
+    padding-left: 1rem
+
+.copyright
+  margin: auto auto -2rem
+
+.nav-toggle
+  transition: $transition-cubic
+  transform: translate(-12.5rem, -46vh) rotate(-90deg)
+  z-index: 2
+
+.nav-is-closed
+  transform: translateX(23rem)
+
+.fa
+  font-size: 1.6rem

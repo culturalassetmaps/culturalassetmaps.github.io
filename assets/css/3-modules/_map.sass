@@ -1,0 +1,46 @@
+@mixin box-shadow
+  box-shadow: 4px 4px rgba(0, 0, 0, 0.15)
+
+div.cartodb-zoom
+  border: none
+  +box-shadow
+
+div.cartodb-popup.v2, div.cartodb-popup.header.v2.header
+  +box-shadow
+
+div.cartodb-popup.v2 a.cartodb-popup-close-button, div.cartodb-popup.v2.header.with-image a.cartodb-popup-close-button
+  border-radius: 50%
+  box-shadow: 3px 3px rgba(0, 0, 0, 0.15)
+  height: 40px
+  right: -24px
+  top: -24px
+  width: 40px
+
+  &:hover
+    box-shadow: 3px 3px rgba(0, 0, 0, 0.25)
+
+div.cartodb-popup.v2 a.cartodb-popup-close-button::after, div.cartodb-popup.v2 a.cartodb-popup-close-button::before, div.cartodb-popup.v2.header.with-image a.cartodb-popup-close-button::after, div.cartodb-popup.v2.header.with-image a.cartodb-popup-close-button::before
+  background: $piction
+  border-radius: 3px
+  height: 3px
+  left: 14px
+  top: 18px
+  width: 12px
+
+div.cartodb-legend-stack
+  border: none
+  border-radius: 2px
+  bottom: 3rem
+  +box-shadow
+  right: 29rem
+  transition: $transition-cubic
+
+div.cartodb-legend-stack, div.cartodb-legend
+  z-index: 0
+
+div.cartodb-legend.category ul li, div.cartodb-legend.color ul li, div.cartodb-legend.custom ul li, div.cartodb-popup h1, div.cartodb-popup h2, div.cartodb-popup h3, div.cartodb-popup h4, div.cartodb-popup h5, div.cartodb-popup h6, div.cartodb-popup p, div.cartodb-tooltip-content p, div.cartodb-tooltip-content h4, div.cartodb-popup.header div.cartodb-popup-header h1
+  font-family: 'Lato', sans-serif
+  font-weight: 500
+
+.leaflet-control-attribution
+  display: none

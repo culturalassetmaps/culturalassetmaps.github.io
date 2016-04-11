@@ -1,0 +1,65 @@
+doctype html
+html
+  
+  include ./assets/partials/head.jade
+    
+  body
+  
+    include ./assets/partials/nav.jade
+    
+    #map
+    
+    script(src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js")
+    script.
+      function main() {
+        var url = 'https://westminster-id.cartodb.com/api/v2/viz/d5b4d972-b55f-11e5-a79d-0ecfd53eb7d3/viz.json';
+      
+        cartodb.createVis('map', url, {
+            shareable: false,
+            title: false,
+            description: false,
+            search: false,
+            tiles_loader: true,
+            center_lat: 40.731,
+            center_lon: -111.855,
+            zoom: 11,
+            cartodb_logo:false
+        })
+          .done(function(vis, layers) {
+              // layer 0 is the base layer, layer 1 is cartodb layer
+              // setInteraction is disabled by default
+              layers[1].setInteraction(true);
+              layers[1].on('featureOver', function(e, latlng, pos, data) {
+                  cartodb.log.log(e, latlng, pos, data);
+              });
+      
+              vis.map.set({
+                 minZoom: 11,
+                  maxZoom: 15
+      
+              });
+              // you can get the native map to work with it
+              var map = vis.getNativeMap();
+                  // now, perform any operations you need
+              // map.setZoom(3);
+              // map.panTo([50.5, 30.5]);
+      
+          })
+          .error(function(err) {
+              console.log(err);
+          });
+        }
+        window.onload = main;
+      
+        var toggleButton = document.getElementById("toggleInput");
+      
+        var onToggleClick = function(){
+            document.getElementById("map").style.height = "100%";
+            document.getElementById("mBody").style.height = "100%";
+            document.getElementById("mHtml").style.height = "100%";
+      
+        };
+      
+        toggleButton.addEventListener("click", onToggleClick);
+
+    include ./assets/partials/bottom.jade
